@@ -8,10 +8,10 @@ context("Startup", () => {
   });
 
   it("has a popup", () => {
-    cy.waitFor(2000);
+    cy.wait(1000);
 
     cy.get("#map").click(500, 300);
 
-    cy.findByText("this is an important announcement").should("exist");
+    cy.findByText("this is the first marker").should("exist");
   });
 });

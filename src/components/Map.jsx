@@ -34,7 +34,7 @@ const MapboxGLMap = () => {
         `      
         <div className="p-4">
           <h2 className="font-medium text-lg">This is a popup</h2>
-          <div>this is an important announcement</div>
+          <div>this is the first marker</div>
         </div>
         `
       );
@@ -48,14 +48,14 @@ const MapboxGLMap = () => {
         `      
         <div className="p-4">
           <h2 className="font-medium text-lg">This is a popup</h2>
-          <div>this is an important announcement</div>
+          <div>this is the second marker</div>
         </div>
         `
       );
 
       new mapboxgl.Marker()
         .setLngLat([-20, 0])
-        .setPopup(popup) // sets a popup on this marker
+        .setPopup(offScreenPopup) // sets a popup on this marker
         .addTo(map);
     };
 
