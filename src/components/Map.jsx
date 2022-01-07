@@ -4,7 +4,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 
 const styles = {
   width: "1000px",
-  height: "600px",
+  height: "500px",
   position: "absolute",
 };
 
@@ -39,10 +39,10 @@ const MapboxGLMap = () => {
         `
       );
 
-      new mapboxgl.Marker()
-        .setLngLat([0, 0])
-        .setPopup(popup) // sets a popup on this marker
-        .addTo(map);
+      // new mapboxgl.Marker()
+      //   .setLngLat([0, 0])
+      //   .setPopup(popup) // sets a popup on this marker
+      //   .addTo(map);
 
       const offScreenPopup = new mapboxgl.Popup({ offset: 25 }).setHTML(
         `      
@@ -53,10 +53,10 @@ const MapboxGLMap = () => {
         `
       );
 
-      new mapboxgl.Marker()
-        .setLngLat([-20, 0])
-        .setPopup(offScreenPopup) // sets a popup on this marker
-        .addTo(map);
+      // new mapboxgl.Marker()
+      //   .setLngLat([-20, 0])
+      //   .setPopup(offScreenPopup) // sets a popup on this marker
+      //   .addTo(map);
     };
 
     if (!map) initializeMap({ setMap, mapContainer });

@@ -10,21 +10,59 @@ context("Startup", () => {
   it("drags ", () => {
     cy.wait(1000);
 
-    cy.get("#map").should("exist");
+    const map = cy.get("#map");
+    map.should("exist");
 
-    cy.get(".mapboxgl-canvas").should("exist");
+    const canvas = cy.get(".mapboxgl-canvas");
 
-    cy.get(".mapboxgl-canvas")
-      .dragMapFromCenter({
-        // Go 1/6 of map container width to the right (negative direction)
-        xMoveFactor: -1 / 2,
-        // Go 1/3 of map container height to the top (positive direction)
-        yMoveFactor: 0 / 1,
+    map
+      .trigger("mouseenter", 700, 250)
+      .trigger("mousedown", 700, 250, {
+        bubbles: true,
+        waitForAnimations: true,
+        // which: 1,
+        // pageX: 700,
+        // pageY: 250,
       })
-      .wait(500);
+      // .wait(100)
+      .trigger("mousemove", {
+        bubbles: true,
+        waitForAnimations: true,
+        pageX: 550,
+        pageY: 250,
+        which: 1,
+      })
+      .wait(100)
+      .trigger("mouseup", {
+        bubbles: true,
+        waitForAnimations: true,
+        which: 1,
+        pageX: 550,
+        pageY: 250,
+      })
+      .wait(100);
 
-    cy.get("#map").click(500, 300);
+    // canvas
+    //   .trigger("mousedown", 590, 250)
+    //   .trigger("mousemove", 580, 250)
+    //   .wait(10)
+    //   .trigger("mouseup", 580, 250)
+    //   .wait(10);
 
-    cy.findByText("this is the second marker").should("exist");
+    // canvas
+    //   .trigger("mousedown", 580, 250)
+    //   .trigger("mousemove", 570, 250)
+    //   .wait(10)
+    //   .trigger("mouseup", 570, 250)
+    //   .wait(10);
+
+    // canvas
+    //   .trigger("mousedown", 570, 250)
+    //   .trigger("mousemove", 560, 250)
+    //   .wait(10)
+    //   .trigger("mouseup", 560, 250)
+    //   .wait(10);
+
+    // cy.findByText("this is the other announcement").should("exist");
   });
 });
